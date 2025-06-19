@@ -6,7 +6,13 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// Allow CORS from your frontend origin
+app.use(cors({
+  origin: 'http://localhost:5174',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+}));
+
 app.use(express.json());
 
 app.post('/api/contact', async (req, res) => {
