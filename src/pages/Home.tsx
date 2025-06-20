@@ -11,15 +11,15 @@ const Home = () => {
       <section className="pt-16 pb-12 px-4 sm:px-6 lg:px-8 relative">
         {/* Responsive photo: show above content on mobile, right on md+ */}
         <div className="md:hidden flex justify-center mb-8">
-          <div
+          <img
+            src={myphoto}
+            alt="Khushi Shah"
+            className="w-40 h-52 object-cover rounded-[2rem_4rem_2rem_4rem] shadow-lg border-4 border-white"
             style={{
-              width: 160,
-              height: 200,
-              borderRadius: '2rem 4rem 2rem 4rem',
-              overflow: 'hidden',
-              boxShadow: '0 8px 32px 0 rgba(60,60,120,0.18), 0 1.5px 8px 0 rgba(80,80,180,0.10)',
-              border: '4px solid #fff',
-              background: `url(${myphoto}) center right/cover no-repeat`,
+              maxWidth: '90vw',
+              maxHeight: '60vw',
+              minWidth: 120,
+              minHeight: 150,
             }}
           />
         </div>
