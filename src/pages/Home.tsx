@@ -113,10 +113,10 @@ const Home = () => {
           <div className="hidden md:flex w-1/2 items-center justify-center">
             <div
               style={{
-                width: '80%',
-                height: '80%',
-                minHeight: 280,
-                minWidth: 200,
+                width: '95%',
+                height: '90%',
+                minHeight: 380,
+                minWidth: 280,
                 borderTopLeftRadius: '4rem 8rem',
                 borderBottomLeftRadius: '4rem 8rem',
                 borderTopRightRadius: '2rem 4rem',
