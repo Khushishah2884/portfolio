@@ -115,7 +115,7 @@ const Home = () => {
               style={{
                 width: '95%',
                 height: '90%',
-                minHeight: 380,
+                minHeight: 400,
                 minWidth: 280,
                 borderTopLeftRadius: '4rem 8rem',
                 borderBottomLeftRadius: '4rem 8rem',
