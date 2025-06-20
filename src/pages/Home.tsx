@@ -114,8 +114,8 @@ const Home = () => {
             <div
               style={{
                 width: '95%',
-                height: '90%',
-                minHeight: 400,
+                height: '98%',
+                minHeight: 520,
                 minWidth: 280,
                 borderTopLeftRadius: '4rem 8rem',
                 borderBottomLeftRadius: '4rem 8rem',
