@@ -21,11 +21,15 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
           setTimeout(() => {
             setIsVisible(true);
           }, delay);
+          // Disconnect after first intersection (performance: once: true)
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '50px',
+        threshold: 0.08,
+        rootMargin: '40px 0px',
       }
     );
 
@@ -34,19 +38,17 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      observer.disconnect();
     };
   }, [delay]);
 
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out ${
+      className={`transition-all ease-[cubic-bezier(0.16,1,0.3,1)] duration-700 ${
         isVisible
           ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-8'
+          : 'opacity-0 translate-y-6'
       } ${className}`}
     >
       {children}

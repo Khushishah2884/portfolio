@@ -1,3 +1,256 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================================
+   PORTFOLIO DESIGN SYSTEM — Khushi Shah
+   Theme: Deep Charcoal + Electric Indigo/Violet
+   Fonts: Plus Jakarta Sans (headings) + Inter (body)
+   Mode: Light (default) + Dark (class="dark" on <html>)
+   ============================================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    transition: background-color 0.3s ease, color 0.2s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    @apply tracking-tight;
+  }
+
+  ::selection {
+    background: rgba(99, 102, 241, 0.2);
+    color: #4338CA;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-zinc-100 dark:bg-zinc-900; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #6366F1, #8B5CF6);
+    border-radius: 3px;
+  }
+}
+
+/* ============================================================
+   GRADIENT TEXT
+   ============================================================ */
+.gradient-text {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   CARD SYSTEM
+   ============================================================ */
+.card {
+  @apply bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl;
+  transition: border-color 0.2s ease, box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+}
+.card:hover {
+  @apply border-indigo-200 dark:border-indigo-500/40;
+  box-shadow: 0 12px 40px -8px rgba(99, 102, 241, 0.18);
+  transform: translateY(-3px);
+}
+
+/* Gradient border card wrapper */
+.card-gradient-border {
+  background: linear-gradient(135deg, rgba(99,102,241,0.6), rgba(139,92,246,0.6));
+  border-radius: 20px;
+  padding: 1.5px;
+}
+.card-gradient-border > * {
+  @apply bg-white dark:bg-zinc-900;
+  border-radius: 18.5px;
+}
+
+/* ============================================================
+   BUTTON SYSTEM
+   ============================================================ */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white rounded-xl;
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  transition: all 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-primary:hover {
+  box-shadow: 0 6px 22px rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl;
+  @apply text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700;
+  @apply bg-white dark:bg-zinc-900;
+  @apply hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-indigo-200 dark:hover:border-indigo-500/50;
+  transition: all 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-ghost:hover { transform: translateY(-2px); }
+.btn-ghost:active { transform: translateY(0); }
+
+/* ============================================================
+   BADGE SYSTEM
+   ============================================================ */
+.badge {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  @apply bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300;
+  @apply border border-indigo-200 dark:border-indigo-500/30;
+}
+
+.badge-zinc {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  @apply bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400;
+  @apply border border-zinc-200 dark:border-zinc-700;
+}
+
+.badge-success {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  @apply bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400;
+  @apply border border-emerald-200 dark:border-emerald-500/30;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav-link {
+  @apply relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200;
+  @apply text-zinc-600 dark:text-zinc-400;
+  @apply hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/60;
+}
+.nav-link.active {
+  @apply text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 font-semibold;
+}
+
+/* ============================================================
+   HERO BACKGROUND
+   ============================================================ */
+.hero-bg {
+  background:
+    radial-gradient(ellipse 70% 60% at 5% 40%, rgba(99,102,241,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 95% 10%, rgba(139,92,246,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 90%, rgba(99,102,241,0.05) 0%, transparent 55%);
+}
+.dark .hero-bg {
+  background:
+    radial-gradient(ellipse 70% 60% at 5% 40%, rgba(99,102,241,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 95% 10%, rgba(139,92,246,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 90%, rgba(99,102,241,0.08) 0%, transparent 55%);
+}
+
+/* Grid dot pattern */
+.dot-grid {
+  background-image: radial-gradient(rgba(99,102,241,0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.dark .dot-grid {
+  background-image: radial-gradient(rgba(99,102,241,0.12) 1px, transparent 1px);
+}
+
+/* ============================================================
+   SECTION UTILITIES
+   ============================================================ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.3) 30%, rgba(139,92,246,0.3) 70%, transparent 100%);
+}
+
+.eyebrow {
+  @apply text-xs font-bold uppercase tracking-[0.15em] text-indigo-500 dark:text-indigo-400;
+}
+
+/* ============================================================
+   EXPERIENCE TIMELINE
+   ============================================================ */
+.timeline-line {
+  @apply absolute left-5 top-12 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800;
+}
+.timeline-dot {
+  @apply w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0;
+  background: linear-gradient(135deg, #6366F1, #8B5CF6);
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.15);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(99,102,241,0.25); }
+  50%       { box-shadow: 0 0 50px rgba(139,92,246,0.5); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+@keyframes fadeUp {
+  0%   { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmerBg {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+.animate-float       { animation: float 4s ease-in-out infinite; }
+.animate-float-delay { animation: float 4s ease-in-out 1.5s infinite; }
+.animate-float-slow  { animation: float 6s ease-in-out infinite; }
+.animate-glow        { animation: glowPulse 3s ease-in-out infinite; }
+.animate-blink       { animation: blink 1.2s step-end infinite; }
+.animate-fade-up     { animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both; }
+.animate-border-glow { animation: borderGlow 2.5s ease-in-out infinite; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-150 { animation-delay: 0.15s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ============================================================
+   CURSOR SPOTLIGHT (desktop only)
+   ============================================================ */
+@media (pointer: fine) {
+  body::before {
+    content: '';
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99,102,241,0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    top: var(--cursor-y, 50%);
+    left: var(--cursor-x, 50%);
+    pointer-events: none;
+    z-index: 0;
+    will-change: top, left;
+    transition: top 0.08s linear, left 0.08s linear;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  body::before { display: none !important; }
+}
